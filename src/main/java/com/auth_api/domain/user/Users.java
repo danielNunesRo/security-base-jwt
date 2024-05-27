@@ -24,28 +24,21 @@ public class Users implements UserDetails {
 	@Column(nullable = false)
 	private String password;
 	@Column(nullable = false)
+	private String email;
+	@Column(nullable = false)
 	private UserRole role;
 	
 	public Users() {
 		
 	}
 
-	 public Users(String id, String login, String password, UserRole role) {
+	public Users(String login, String password, String email, UserRole role) {
 		super();
-		this.id = id;
 		this.login = login;
 		this.password = password;
+		this.email = email;
 		this.role = role;
 	}
-	 
-	 public Users(String login, String password, UserRole role) {
-		 this.login = login;
-		 this.password = password;
-		 this.role = role;
-	 }
-	 
-	
-
 
 	public String getId() {
 		return id;
@@ -73,6 +66,16 @@ public class Users implements UserDetails {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override
